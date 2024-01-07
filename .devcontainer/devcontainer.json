@@ -1,0 +1,25 @@
+{
+    "name": "Poetry",
+    "image": "mcr.microsoft.com/devcontainers/python:3",
+    "features": {
+        "ghcr.io/devcontainers-contrib/features/poetry:2": {},
+        "ghcr.io/devcontainers/features/rust:1": {}
+    },
+    "containerEnv": {
+        "TZ": "Asia/Tokyo"
+    },
+    "customizations": {
+        "vscode": {
+            "extensions": [
+                "ms-python.python",
+                "ms-python.vscode-pylance",
+                "GitHub.copilot",
+                "ms-python.black-formatter",
+                "ms-python.isort"
+            ]
+        }
+    },
+    "postCreateCommand": [
+        "poetry install"
+    ]
+}
