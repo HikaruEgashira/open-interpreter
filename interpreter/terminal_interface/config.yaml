@@ -1,15 +1,16 @@
 ### OPEN INTERPRETER CONFIGURATION FILE
 
-llm.model: "gpt-4"
+llm.model: "gpt-3.5-turbo-1106"
 llm.temperature: 0
 
 # Be sure to remove the "#" before the following settings to use them.
 
 # custom_instructions: ""  # This will be appended to the system message
-# auto_run: False  # If True, code will run without asking for confirmation
-# safe_mode: "off"  # The safety mode for the LLM — one of "off", "ask", "auto"
-# offline: False  # If True, will disable some online features like checking for updates
-# verbose: False  # If True, will print detailed logs
+auto_run: True  # If True, code will run without asking for confirmation
+safe_mode: "off"  # The safety mode for the LLM — one of "off", "ask", "auto"
+offline: True  # If True, will disable some online features like checking for updates
+search: True
+verbose: True  # If True, will print detailed logs
 
 # llm.api_key: ...  # Your API key, if the API requires it
 # llm.api_base: ...  # The URL where an OpenAI-compatible server is running to handle LLM API requests

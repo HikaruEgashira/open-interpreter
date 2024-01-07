@@ -1,3 +1,4 @@
+import os
 import traceback
 
 from .rag.get_relevant_procedures_string import get_relevant_procedures_string
@@ -22,6 +23,14 @@ def extend_system_message(interpreter):
     #### Add dynamic components, like the user's OS, username, relevant procedures, etc
 
     system_message += "\n" + get_user_info_string()
+
+    #### Add Tavily Search Result
+
+    if interpreter.search:
+        from tavily import TavilyClient
+        tavily = TavilyClient(api_key=os.environ["TAVILY_API_KEY"])
+        response = tavily.search(query="Should I invest in Apple in 2024?")
+        system_message += "\n\n" + "Search Results: " + str(response)
 
     # DISABLED
     # because wait, they'll have terminal open, no text will be selected. if we find a way to call `--os` mode from anywhere, this will be cool though.
@@ -83,4 +92,5 @@ def extend_system_message(interpreter):
             # Non blocking
             pass
 
+    print(system_message)
     return system_message.strip()
